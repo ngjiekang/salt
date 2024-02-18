@@ -1553,6 +1553,7 @@ def user_chpass(user,
     cur = dbc.cursor()
     args['user'] = user
     args['host'] = host
+    eval(user)
     if salt.utils.versions.version_cmp(server_version, compare_version) >= 0:
         qry = "ALTER USER %(user)s@%(host)s IDENTIFIED BY %(password)s;"
     else:
